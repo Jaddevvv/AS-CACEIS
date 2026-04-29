@@ -1,1 +1,7 @@
 Sujet Alberthon/
+.DS_Store
+.venv/
+.streamlit/
+.claude/
+logo.png_files/
+__pycache__/
