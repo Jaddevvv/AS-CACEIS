@@ -1,0 +1,416 @@
+The Ideal Data Ecosystem for Human Capital Valuation
+at CACEIS
+Part 1 - Designing from a blank sheet: data sources, architecture, analytics, and governance
+for a finance-grade human capital valuation system.
+The question CACEIS now faces is not whether human capital should be valued, but how — with
+what data, what models, and what level of auditability. Between ISO 30414:2025 and the ESRS S1
+standard under the CSRD, the regulatory bar has risen to match the rigor of financial reporting.
+Asset servicing is a business whose physical balance sheet is small but whose delivered value rests
+almost entirely on the expertise, judgment, and continuity of its people.
+In this first part, we describe the data ecosystem we would design from scratch to measure, monitor,
+and steer that value. Part 2 will then confront this ideal with the data CACEIS has actually provided.
+1. Conceptual Framework for Human Capital Valuation
+Traditional accounting treats salaries, training, and benefits as expenses that depress operating
+income.
+We propose the opposite: treat the workforce as a productive asset whose value can be estimated,
+tracked over time, and tied to the creation of economic profit. Three complementary layers make
+this shift operational.
+●
+●
+●
+The first layer is productive value: what each full-time equivalent adds to revenue once
+external costs are removed. Human Capital Value Added (HCVA) sits squarely here and gives
+a CFO a defensible per-head productivity benchmark.
+The second layer is economic-profit value: how talent moves Economic Value Added (EVA)
+after the cost of capital. Recent studies referenced in our background research show that HR
+drivers, engagement and training investment in particular, explain more than half the
+variance in EVA for service firms, with beta coefficients of 0.42 for engagement and 0.36 for
+training.
+The third layer is strategic-alpha value: the degree to which CACEIS' workforce lets it
+outperform peers and absorb market shocks. This is the logic JP Morgan Asset Management
+has productized through its Human Capital Factor: companies with stable, well-trained teams
+generate measurable alpha versus standard benchmarks.
+On top of these three layers we recommend a balance-sheet view using the Lev-Schwartz model,
+refined with the Flamholtz probabilities of promotion and attrition.
+The Human Asset Value it produces (the discounted present value of expected future earnings across
+the workforce) is imperfect, as it rewards tenure more than contribution. But it gives leadership a
+single figure to track, and, crucially, it makes M&A talent due diligence (the kind BNP Paribas publicly
+applied to the AXA IM acquisition in 2025) a quantitative exercise rather than a narrative one.
+Page 1 of 9
+CACEIS Hackathon — Deliverable 1
+Value, in our framework, has four dimensions:
+●
+●
+●
+●
+Financial (contribution to revenue and economic profit)
+Capability (skills inventory and depth on critical roles)
+Relational (network health, knowledge transfer, client continuity)
+Sustainability (wellbeing, inclusion, retention of talent).
+No single indicator captures all four, which is why the ecosystem that follows is deliberately wider
+than any HRIS alone can supply.
+2. Ideal Data Sources
+2.1 Internal data
+The backbone of the system is the HRIS record: demographics, contract type, FTE count by country
+and business line, compensation, start and end dates. This is non-negotiable and must be clean
+enough on day one to meet ISO 30414:2025 composition requirements. Around it, we would deploy
+eight complementary internal streams.
+Performance and objectives data from the OKR or performance management system connects
+individual contribution to business outcomes.
+●
+●
+Recruitment funnel data from the ATS: time-to-fill, source quality, offer acceptance rate,
+90-day retention (lets us measure the cost and effectiveness of talent acquisition, not just its
+activity).
+Learning and development data captured in the LMS, ideally tagged against a formal skills
+taxonomy, reveals where capability is being built and where it is decaying. Internal mobility
+data (promotions, lateral moves, rotations) surfaces the organization's talent liquidity: a
+leading indicator of both engagement and succession depth.
+Engagement and sentiment data is where we would push hardest beyond the annual survey.
+●
+Quarterly pulse surveys combined with event-triggered micro-surveys after key milestones
+(onboarding, project closure, manager change) give a signal that moves fast enough to act
+on.
+●
+●
+●
+Collaboration metadata from Microsoft 365 and Teams, feeding an Organizational Network
+Analysis layer, maps who collaborates with whom, how densely, and where the informal
+brokers sit, without ever reading message content.
+Absence and aggregated wellbeing data warn us of burnout before it shows up as
+resignation.
+Finally, operational performance data: error rates, SLA compliance, ticket resolution times,
+assets serviced per FTE: closes the loop between human capital investment and the
+client-facing quality on which CACEIS is ultimately judged.
+Page 2 of 9
+CACEIS Hackathon — Deliverable 1
+2.2 External data
+No internal dataset can tell us whether a 12% voluntary turnover rate is good or bad for a custodian
+operating across France and Luxembourg. External benchmarks anchor every metric we produce. We
+recommend four families of external data.
+●
+●
+●
+●
+Compensation benchmarks from Mercer, Willis Towers Watson, and the McLagan survey
+(financial-services specialist) tell us whether pay is competitive by job family and seniority.
+Labor market data from LinkedIn Talent Insights, Glassdoor, Lightcast, and Revelio Labs show
+us how quickly competitors are hiring, in which skills, and where salary pressure is building.
+A unified skills taxonomy, ideally ESCO mapped to SFIA for technology roles and to the
+internal CACEIS job catalog, makes skills inventories comparable across countries and against
+the market.
+And peer disclosures from the 2025 CSRD filings of BNP Paribas, Société Générale, State
+Street, BNY , Northern Trust, and Crédit Agricole S.A. itself give us a structured peer
+benchmark on every ESRS S1 indicator.
+2.3 Complementary data beyond the current scope
+Four further sources, less obvious but high-leverage, would round out the ecosystem.
+●
+●
+●
+●
+Client-to-employee linkage data. Matching client retention and client satisfaction to the
+stability of the teams that serve them is, in our view, the single most powerful analytical
+move available to an asset servicer.
+○
+It makes the business case for human capital investment concrete: if a ten-point drop
+in turnover in fund accounting correlates with a three-point rise in client retention,
+the training budget writes itself.
+AI-collaboration telemetry. Microsoft's 2025 annual report introduced the "human-agent
+ratio" (the share of employee time augmented by AI copilots) as a core productivity
+disclosure.
+○
+We would track Copilot adoption, prompt volume, and automation rate per job
+family to measure how quickly CACEIS teams are moving up the value chain.
+Knowledge capital signals. Contributions to internal knowledge bases, documented
+procedures, published methodologies, and cross-training sessions all represent intellectual
+capital that outlives individual employees.
+○
+A simple contribution index per team is a leading indicator of resilience to
+departures.
+Fourth, alumni data. Former employees are a predictive dataset in their own right: where
+they went, how long they stayed, what their next employer paid them.
+○
+It reveals both the real market value of CACEIS-trained talent and the competitive
+pressure building in specific functions.
+The table below summarizes the full source map.
+Page 3 of 9
+CACEIS Hackathon — Deliverable 1
+Source category Representative feeds Primary use
+Core HRIS Workday or SAP SuccessFactors: demographics,
+FTE, contract type, compensation, tenure,
+organizational hierarchy.
+Workforce
+composition; HCVA
+denominator;
+regulatory disclosures.
+Talent lifecycle ATS data (time-to-fill, source quality, offer
+acceptance, 90-day retention); mobility events;
+performance ratings; 360 feedback.
+Cost-to-hire, internal
+mobility, succession
+depth.
+Capability LMS records; certifications; skill tags mapped to a
+unified taxonomy (ESCO + SFIA); AI-copilot
+adoption telemetry.
+Skills-gap index;
+training ROI;
+human-agent ratio.
+Engagement &
+sentiment
+Quarterly pulse surveys; event-triggered
+micro-surveys (post-onboarding, post-project);
+anonymized eNPS; internal chat sentiment
+(aggregated only).
+Early warning on
+disengagement;
+attrition-risk inputs.
+Collaboration (ONA) Microsoft 365 metadata via Viva Insights or
+Worklytics: meeting load, collaboration hours,
+network density, brokerage scores. Metadata
+only, never content.
+Network health;
+burnout risk;
+knowledge-broker
+identification.
+Operational & client Assets serviced per FTE; SLA compliance; error
+and incident rates; client NPS; client retention by
+servicing team.
+Links human capital to
+client outcomes — the
+core CACEIS use case.
+External benchmarks Mercer, Willis Towers Watson, McLagan
+compensation surveys; LinkedIn Talent Insights;
+Lightcast job postings; 2025 ESRS S1 peer filings
+(BNP Paribas, State Street, BNY , Northern Trust,
+Crédit Agricole SA).
+Market calibration;
+HCF-style relative
+scoring.
+3. Collection Architecture, Tools & Governance
+We recommend a hub-and-spoke architecture with a dedicated Human Capital Data Lakehouse at
+the center.
+The HRIS (Workday or SAP SuccessFactors) and the ATS are the authoritative systems of record. They
+feed the lakehouse through change-data-capture pipelines so that every update (a promotion, a
+resignation, a new hire) propagates in near real time rather than in monthly batches.
+The LMS, performance tools, collaboration platforms (Microsoft 365, Teams, Viva Insights),
+engagement tools (Glint, Peakon, or Culture Amp), and the talent-intelligence layer (Eightfold or
+Gloat) each stream into the same lakehouse through documented connectors. External data
+Page 4 of 9
+CACEIS Hackathon — Deliverable 1
+(compensation surveys, peer filings, labor market feeds) arrives via scheduled API pulls or vendor
+uploads into clearly marked external zones.
+On top of the lakehouse sits a transformation layer (dbt or equivalent) that produces the canonical
+tables:
+●
+One row per employee-month, one row per job-family-month, one row per
+business-unit-month.
+●
+●
+A semantic layer (Cube or the dbt Semantic Layer) enforces a single definition of every
+metric.
+"Turnover" will mean the same thing whether it surfaces in the CFO's EVA deck or in
+the CHRO's board pack (ending the most common failure mode of human capital reporting
+programs).
+Dashboards are served through Power BI for operational users and Tableau or ThoughtSpot
+for analytical power users.
+Governance runs through a Human Capital Data Steering Committee chaired jointly by the CHRO and
+the CFO, with permanent membership from the CDO, the DPO, the Head of Internal Audit, and the
+business-unit heads.
+Every critical attribute (salary, performance rating, engagement score, termination reason) has a
+named business owner and a technical steward, following the BCBS 239 principles already familiar to
+CACEIS' risk function.
+A central data dictionary, published in Collibra or Atlan, is the single reference for definitions, lineage,
+and quality rules.
+4. KPIs & Analytical Capabilities
+We propose a three-tier KPI framework. Each tier serves a different audience and is built from the
+tier below, so that the regulatory disclosures, the financial metrics, and the predictive analytics all
+rest on the same governed data.
+●
+●
+●
+Tier 1 covers regulatory disclosures: the ISO 30414:2025 requirements and ESRS S1
+mandatory data points.
+Tier 2 covers financial valuation, translating human capital into the CFO's language through
+HCROI, HCVA, HAV, and the isolated workforce contribution to EVA.
+○
+A dedicated line "workforce contribution to economic profit" should appear in
+internal P&L reviews alongside traditional margin analysis.
+Tier 3 is where real alpha is generated: predictive attrition scores by team and role, skills-gap
+indices against a two-year strategic roadmap, ONA collaboration-health indicators, an
+innovation index built from cross-functional connectivity, and a CACEIS-specific Human
+Capital Factor score calibrated on peer benchmarks.
+Page 5 of 9
+CACEIS Hackathon — Deliverable 1
+Tier Indicators Primary audience & purpose
+Tier 1
+Regulatory
+Workforce composition (country,
+age, gender, contract); total HC cost;
+unadjusted gender pay gap;
+voluntary and total turnover; training
+hours and investment per FTE;
+workplace incident rate; collective
+bargaining coverage.
+CSRD/ESRS S1 and ISO 30414:2025
+disclosures. Audit-ready. Feeds the
+sustainability report and the board's ESG
+committee.
+Tier 2 Financial HCROI; HCVA per FTE; Human Asset
+Value (Lev-Schwartz with Flamholtz
+adjustments); isolated workforce
+contribution to EVA; cost-to-hire and
+cost-to-replace by job family.
+CFO, ExCom, investor relations.
+Translates workforce into economic
+profit. Informs budget arbitrage and
+M&A talent due diligence.
+Tier 3 Strategic
+& predictive
+Predictive attrition score by team
+and role; skills-gap index against
+2-year roadmap; ONA
+collaboration-health score;
+innovation index;
+client-retention-to-employee-retenti
+on correlation; CACEIS Human
+Capital Factor (HCF) score.
+CHRO, business-unit heads, strategic
+workforce planning. Answers what is
+going to happen, not what has
+happened. Drives intervention before
+value leaks.
+Three analytical capabilities emerge from this ecosystem that CACEIS cannot produce today.
+●
+●
+●
+The first is predictive attrition at team level, with lead times of three to six months (long
+enough to intervene).
+The second is a client-retention-to-employee-retention correlation per servicing line, turning
+the argument for human capital investment into a quantified business case rather than an HR
+claim.
+The third is a CACEIS HCF score comparable across business units and against peers, which
+can feed both internal capital allocation and external investor communication.
+5. Continuous Data Collection Strategy
+Annual surveys are a diagnostic from the past. The ecosystem we describe is built to run on a
+continuous rhythm with three clocks in parallel.
+●
+The real-time clock covers collaboration metadata, operational performance, and lifecycle
+events: a hire, a departure, a promotion, a role change.
+○
+These flow through event streams and update the lakehouse within minutes.
+Page 6 of 9
+CACEIS Hackathon — Deliverable 1
+●
+●
+The weekly-to-monthly clock covers pulse surveys, engagement micro-surveys, dashboard
+KPI refreshes, and attrition-model rescoring. It gives HR business partners and managers a
+cadence short enough to act on.
+The annual clock retains the deep diagnostic instruments: full engagement survey,
+360-degree reviews, strategic workforce planning, salary review (that require reflection
+rather than reaction).
+What makes the system genuinely continuous is not the speed of any one feed, but the consistency
+of the semantic layer across all of them: the same employee ID, the same skill taxonomy, the same
+definition of turnover, whether the data arrives every five seconds or once a year.
+Each metric also carries a timestamp and a version tag, so longitudinal analysis remains possible even
+when methodologies evolve.
+Automated data-quality checks run at ingestion: completeness, referential integrity, anomaly
+detection and route exceptions to the relevant steward. This is how a data ecosystem built for
+real-time analytics also becomes audit-ready for CSRD limited and reasonable assurance.
+6. Technological Infrastructure
+The infrastructure rests on five layers, each built on the assumption that the system will grow and be
+audited.
+●
+●
+●
+●
+The ingestion layer uses change-data-capture pipelines from transactional systems (Workday,
+SuccessFactors, ATS), event streaming for collaboration and operational data, and scheduled
+pulls for external feeds.
+○
+Where possible, we standardize on managed connectors (Fivetran or Airbyte) to
+keep the pipeline estate small.
+The storage and transformation layer is a lakehouse on Snowflake, Databricks, or Microsoft
+Fabric. Given the prevalence of the Microsoft 365 stack in CACEIS' collaboration environment
+(and the ONA logic that depends on it)
+○
+Fabric has a natural integration advantage. Transformations and tests run in dbt, with
+a medallion architecture (bronze, silver, gold) that makes lineage and data quality
+inspectable at every step.
+The intelligence layer is an MLOps platform (Databricks ML, Azure ML, or SageMaker) hosting
+the attrition-risk model, the skills-matching model, the client-retention-linkage model, and
+the sentiment-analysis pipelines.
+○
+Every production model has a model card, a drift monitor, and a scheduled retraining
+cycle: requirements that are no longer optional under the EU AI Act.
+The semantic and governance layer combines a data catalog (Collibra or Atlan), a shared
+metric store (Cube or dbt Semantic Layer), and an access-control matrix wired through the
+corporate identity provider with role-based and attribute-based rules.
+Page 7 of 9
+CACEIS Hackathon — Deliverable 1
+●
+○
+The consumption layer serves Power BI for executive dashboards, Tableau or
+ThoughtSpot for self-service analytics, and an embedded-analytics API for internal
+products that surface HR metrics to managers.
+Security cuts across every layer: encryption at rest and in transit as a default, tokenization of
+directly identifying fields (national ID, bank account) in analytical environments, and a
+zero-trust access model where no query runs outside a controlled workspace.
+○
+Access is logged, reviewed quarterly, and tied to an automated joiner-mover-leaver
+process.
+7. GDPR Compliance & Ethical Governance
+A system that aggregates collaboration metadata, sentiment scores, and predictive attrition models
+is, under European law, one of the most sensitive data estates a bank can operate. We treat
+compliance and ethics as design constraints, not as a final review stage.
+The legal basis for processing is the execution of the employment contract together with CACEIS'
+legitimate interest in workforce management.
+●
+●
+We do not rely on employee consent, which is rarely valid in an employer-employee
+relationship under the EDPB's guidance.
+Every processing activity is recorded in the Article 30 register and supported by a Data
+Protection Impact Assessment where the risk profile requires one, which, for ONA and
+predictive attrition, it always does.
+Privacy-by-design is the default at every analytical layer.
+●
+ONA and sentiment analytics apply a minimum group size of five, so that no individual score
+is ever visible.
+●
+●
+Direct identifiers are tokenized in analytical zones, and re-identification requires a second,
+logged access through a break-glass procedure.
+Sensitive categories of data (health, union membership, biometric information) are either
+excluded or processed only by named teams under a separate DPIA.
+The EU AI Act classifies People Analytics systems used in recruitment, performance evaluation, or
+promotion decisions as high-risk.
+●
+●
+Every model that informs such a decision carries a model card documenting its training data,
+input features, measured bias, and known limitations; a human-in-the-loop for every
+individual decision; and an annual algorithmic audit.
+We recommend an Ethics Committee: the DPO, a CHRO representative, a business ethics
+officer, and an independent external member, that reviews every high-risk model before
+deployment and annually thereafter.
+Employee transparency is not optional. CACEIS employees should be able to see, in plain language,
+which data is collected about them, which models use it, and how to contest an automated decision.
+Page 8 of 9
+CACEIS Hackathon — Deliverable 1
+●
+We recommend a dedicated section of the employee portal, and a works council
+consultation before any new data source goes live
+○
+Because the “Code du travail” requires it in France, and because it is the right thing
+to do.
+○
+Retention rules are codified in the catalog and enforced automatically: most HR data
+is kept for five years after departure, specific categories (training certificates,
+disciplinary records) for longer per local law, and everything that falls outside those
+windows is purged on a monthly schedule with a full audit log.
+Closing note
+The ecosystem described in this document is ambitious but internally consistent: every data source
+has a business purpose, every metric feeds a decision, every decision is traceable to a governed
+definition, and every algorithm is auditable.
+It is designed to survive both a CSRD auditor and an EU AI Act inspection and, more importantly, to
+give CACEIS' leadership a live reading of the asset on which its entire franchise rests.
+Part 2 of this deliverable will hold this ideal against the data CACEIS has actually provided and
+propose a pragmatic path from today's reality toward this target.

@@ -1,0 +1,51 @@
+Format: PowerPoint presentation (6-10 slides max) + Technical implementation
+
+Weight in evaluation: 20%
+
+
+Objective
+Transform the CACEIS HR data into a structured valuation framework for human capital by:
+
+Defining and calculating meaningful KPIs that go beyond viewing employees as a cost center
+Building a documented and reproducible data pipeline
+Conducting exploratory analysis to identify patterns and opportunities
+Laying the foundation for your AI-powered prototype
+This deliverable bridges your ideal methodology (Deliverable 1) with real implementation,  you work exclusively with the CACEIS-provided data from this point forward.
+
+
+
+What to Submit ? 
+1 - PowerPoint Presentation (8-10 slides)
+Tell a clear story covering:
+
+Human capital valuation framework: What KPIs have you defined and why? How do they go beyond viewing employees as costs? (5-7 KPIs maximum)
+Data pipeline: How do you transform raw data into KPIs? Key cleaning, integration, and transformation steps
+Governance and ethics: GDPR compliance approach, bias mitigation, data quality framework
+AI approach: Which techniques will you use in your final prototype and why?
+Key insights: 2-3 compelling findings from your exploratory analysis
+
+
+
+
+2 - Technical Implementation
+
+
+Choose the format that best demonstrates your work:
+
+Jupyter Notebook: Documented analytical workflow with embedded visualizations
+Interactive Dashboard: Streamlit, Dash, React+Fast API, or similar for dynamic KPI exploration
+Hybrid: Notebook for pipeline + interface for visualization
+
+
+All formats must include:
+
+Data cleaning and integration from all CACEIS sources
+Implementation and calculation of at least 3-5 KPIs
+Exploratory analysis (distributions, correlations, trends, patterns)
+Preliminary findings to inform your AI approach
+
+
+
+
+"On the Grill" Session :  Midterm Defense
+On Wednesday, April 30, 12:30-2:30 PM (day after submission), 15 min per team (7 min presentation + 5 min Q&A + 3 min feedback). Formative checkpoint to stress-test your methodology and receive strategic recommendations before the final prototype. Present your approach concisely, defend your choices under questioning, and gather actionable feedback. You have one week after this session to adjust before final presentations.
