@@ -1,0 +1,222 @@
+ 5-KPI Execution Plan
+
+  | # | KPI | What It Measures | Main Files | Output |
+  |---:|---|---|---|---|
+  | 1 | HCVA / HCROI per FTE | Financial value created by workforce | Finance Synthese_PL, Synthese_ETP | Yearly value-per-
+  FTE dashboard |
+  | 2 | Workforce Value-at-Risk | Employees/segments at risk of attrition or value loss | Data.xlsx, EAE, absence, training
+  | Employee risk score table |
+  | 3 | Learning-to-Performance Index | Whether training improves capability/performance | Training files, Quick/Cold
+  reviews, EAE | Training impact dashboard |
+  | 4 | Absence Productivity Drag | Productivity lost through absence | Absence files, Data.xlsx | Lost FTE + value lost |
+  | 5 | Role Cost Efficiency Index | Whether role cost is aligned with performance | Compensation FR/LU, Sheet1, EAE | Role
+  cost/performance matrix |
+
+  KPI 1: HCVA / HCROI Per FTE
+
+  Goal:
+
+  Prove whether employees are generating increasing financial value.
+
+  Formulas:
+
+  HCVA = PNB - Other Operating Costs
+
+  HCVA per FTE = HCVA / Average FTE
+
+  HCROI = (PNB - Other Operating Costs) / Total Personnel Costs
+
+  Revenue per FTE = PNB / Average FTE
+
+  Work to do:
+
+  | Step | Task |
+  |---:|---|
+  | 1 | Extract yearly P&L rows from Synthese_PL |
+  | 2 | Extract yearly average FTE from Synthese_ETP |
+  | 3 | Build yearly finance KPI table, 2022-2025 |
+  | 4 | Plot HCVA per FTE, HCROI, Revenue per FTE |
+  | 5 | Add business interpretation: value creation vs workforce cost |
+
+  KPI 2: Workforce Value-at-Risk
+
+  Goal:
+
+  Identify employees or segments where CACEIS risks losing human capital value.
+
+  Target variable:
+
+  Left_Next_6M = 1 if employee disappears from the monthly panel for the following 6 months
+  Left_Next_6M = 0 otherwise
+
+  Features:
+
+  Tenure_CACEIS_Months = PERIOD - DATE_ENTRY_CACEIS
+
+  Months_In_Current_Post = PERIOD - DATE_ENTRY_POSTE
+
+  Absence_Days_12M = sum absence days per employee over last 12 months
+
+  Training_Hours_12M = sum training hours per employee over last 12 months
+
+  Performance_Score = EAE score
+
+  Simple risk score:
+
+  Risk Score =
+  0.25 * New Joiner Risk
+  + 0.20 * Low Performance Risk
+  + 0.20 * High Absence Risk
+  + 0.15 * Low Training Risk
+  + 0.10 * Long Time In Post Risk
+  + 0.10 * Segment Risk
+
+  Work to do:
+
+  | Step | Task |
+  |---:|---|
+  | 1 | Build employee-month table from Data.xlsx > Sheet1 |
+  | 2 | Detect employees who disappear from the panel |
+  | 3 | Join EAE, training, and absence features |
+  | 4 | Create risk score |
+  | 5 | Show top-risk entities/jobs/employee segments |
+
+  KPI 3: Learning-to-Performance Index
+
+  Goal:
+
+  Show whether training investment improves capability and performance.
+
+  Formulas:
+
+  Training_Hours = SUM(Total_Training_Hours)
+
+  Training_Count = COUNT(Session_ID)
+
+  Quick_Review_Score = AVG(Note générale)
+
+  Cold_Impact_Score = average converted cold-review answers
+
+  Cold review scoring:
+
+  Oui, tout à fait = 1
+  Oui, en partie = 0.5
+  Non = 0
+
+  Main KPI:
+
+  Learning-to-Performance Index =
+  0.40 * Normalized Training Hours
+  + 0.30 * Normalized Cold Impact Score
+  + 0.20 * Normalized Quick Review Score
+  + 0.10 * Certification Flag
+
+  Work to do:
+
+  | Step | Task |
+  |---:|---|
+  | 1 | Aggregate training records by employee-year |
+  | 2 | Aggregate quick and cold review scores |
+  | 3 | Join with EAE performance scores |
+  | 4 | Compare trained vs non-trained employees |
+  | 5 | Plot training hours vs performance / impact score |
+
+  KPI 4: Absence Productivity Drag
+
+  Goal:
+
+  Translate absenteeism into lost productive capacity and estimated value loss.
+
+  Formulas:
+
+  Total Absence Days = SUM(Jours Ouvrés Absence)
+
+  Lost FTE = Total Absence Days / 220
+
+  Absence Days per Employee = Total Absence Days / Number of Employees
+
+  Absence Productivity Drag = Lost FTE / Average FTE
+
+  Estimated Value Lost = Lost FTE * HCVA per FTE
+
+  Work to do:
+
+  | Step | Task |
+  |---:|---|
+  | 1 | Load absence files for 2023, 2024, 2025 |
+  | 2 | Standardize employee ID, month, reason, absence days |
+  | 3 | Aggregate by month, entity, reason, employee |
+  | 4 | Convert absence days into lost FTE |
+  | 5 | Multiply lost FTE by HCVA per FTE to estimate value loss |
+
+  KPI 5: Role Cost Efficiency Index
+
+  Goal:
+
+  Check if role compensation cost is aligned with performance.
+
+  Important limitation:
+
+  Compensation is job-level average, not employee salary.
+  Do not claim individual salary analysis.
+
+  Formulas:
+
+  Average Total Compensation = Average Fixed Salary + Average Variable Salary
+
+  Variable Pay Ratio = Average Variable Salary / Average Total Compensation
+
+  Role Compensation Index =
+  Average Total Compensation / Median Average Total Compensation in same country-year
+
+  Average Role Performance = AVG(EAE Performance Score) by job/year/country
+
+  Role Cost Efficiency =
+  Normalized Average Role Performance / Role Compensation Index
+
+  Quadrants:
+
+  | Segment | Meaning |
+  |---|---|
+  | High cost + high performance | Strategic high-value role |
+  | High cost + low performance | Efficiency risk |
+  | Low cost + high performance | Retention risk |
+  | Low cost + low performance | Low-impact role |
+
+  Work to do:
+
+  | Step | Task |
+  |---:|---|
+  | 1 | Transform compensation FR/LU sheets into clean long format |
+  | 2 | Join compensation benchmark to employee job/country/year |
+  | 3 | Aggregate EAE performance by job/country/year |
+  | 4 | Calculate role compensation index |
+  | 5 | Build cost-performance quadrant chart |
+
+  Implementation Order
+
+  | Phase | Work | Deliverable |
+  |---:|---|---|
+  | 1 | Data cleaning | Clean CSV/parquet tables |
+  | 2 | Finance KPI | gold_finance_kpis |
+  | 3 | Employee master | gold_employee_month |
+  | 4 | Training + EAE joins | gold_learning_performance |
+  | 5 | Absence aggregation | gold_absence_drag |
+  | 6 | Compensation role benchmark | gold_role_cost_efficiency |
+  | 7 | Dashboard charts | 5 KPI visuals |
+  | 8 | PPT | 8-10 slide defense deck |
+
+  Recommended Final Slide Structure
+
+  | Slide | Content |
+  |---:|---|
+  | 1 | Problem: human capital value is hard to quantify |
+  | 2 | Data architecture and sources |
+  | 3 | KPI framework: the 5 selected KPIs |
+  | 4 | HCVA / HCROI |
+  | 5 | Workforce Value-at-Risk |
+  | 6 | Learning-to-Performance |
+  | 7 | Absence Productivity Drag |
+  | 8 | Role Cost Efficiency |
+  | 9 | AI roadmap |
+  | 10 | Business recommendations |
